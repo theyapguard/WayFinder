@@ -1,5 +1,5 @@
-name: indoor_navigation_app
-description: Indoor navigation system for visually impaired users
+name: wayfinder
+description: WayFinder - AI-powered indoor navigation system for visually impaired users
 
 publish_to: 'none'
 version: 1.0.0+1

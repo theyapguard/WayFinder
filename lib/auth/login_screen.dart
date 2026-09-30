@@ -127,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Semantics(
                           label: 'App title',
                           child: Text(
-                            'NAVI',
+                            'WayFinder',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: titleFontSize,

@@ -25,7 +25,7 @@ class UserHomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Semantics(
-          label: 'NAVI App',
+          label: 'WayFinder App',
           child: Text(
             'User Dashboard',
             style: TextStyle(
@@ -52,7 +52,7 @@ class UserHomeScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Semantics(
-                        label: 'NAVI app icon',
+                        label: 'WayFinder app icon',
                         child: Image.asset(
                           'assets/icon.png',
                           width: mainIconSize,
