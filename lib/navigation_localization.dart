@@ -163,7 +163,7 @@ class NavigationLocalizationScreen extends StatefulWidget {
 
 class _NavigationLocalizationScreenState
     extends State<NavigationLocalizationScreen> {
-  late CameraController _cameraController;
+  CameraController? _cameraController;
   late ClipService _clipService;
   bool _isClipServerReady = false;
   Map<String, List<double>> _storedEmbeddings = {};
@@ -233,6 +233,17 @@ class _NavigationLocalizationScreenState
 
   Future<void> _initializeCamera() async {
     _debugLog('Initializing camera');
+    
+    // Dispose existing controller if it exists and is initialized
+    try {
+      if (_cameraController != null && _cameraController!.value.isInitialized) {
+        await _cameraController!.dispose();
+        _debugLog('Previous camera controller disposed successfully');
+      }
+    } catch (e) {
+      _debugLog('Error disposing previous camera controller: $e');
+    }
+    
     _cameraController = CameraController(
       widget.camera,
       ResolutionPreset.medium,
@@ -241,8 +252,8 @@ class _NavigationLocalizationScreenState
     );
 
     try {
-      await _cameraController.initialize();
-      await _cameraController.setFlashMode(FlashMode.off);
+      await _cameraController!.initialize();
+      await _cameraController!.setFlashMode(FlashMode.off);
       _debugLog('Camera initialized successfully');
       if (mounted) {
         setState(() {
@@ -250,7 +261,8 @@ class _NavigationLocalizationScreenState
         });
       }
     } catch (e) {
-      _debugLog('Error initializing camera: $e');
+      _debugLog('Failed to initialize camera: $e');
+      // Handle camera initialization failure
       if (mounted) {
         setState(() {
           _isLoading = false;
@@ -564,7 +576,8 @@ class _NavigationLocalizationScreenState
   Future<void> _checkAndCaptureFor360Scan() async {
     if (!_isScanning360 ||
         _currentHeading == null ||
-        !_cameraController.value.isInitialized) {
+        _cameraController == null ||
+        !_cameraController!.value.isInitialized) {
       // If not scanning or no heading, reset any active dwelling state
       if (_angleBeingDwelledOn != null) {
         _debugLog(
@@ -666,7 +679,7 @@ class _NavigationLocalizationScreenState
   }
 
   Future<bool> _captureAndStoreEmbedding() async {
-    if (!_cameraController.value.isInitialized) {
+    if (_cameraController == null || !_cameraController!.value.isInitialized) {
       _debugLog('360Scan: Camera not initialized, skipping capture');
       return false;
     }
@@ -677,7 +690,7 @@ class _NavigationLocalizationScreenState
     }
     
     try {
-      final image = await _cameraController.takePicture();
+      final image = await _cameraController!.takePicture();
       final File imageFile = File(image.path);
 
       // Use CLIP service to generate raw embedding (no inpainting for navigation speed)
@@ -868,7 +881,7 @@ class _NavigationLocalizationScreenState
 
   @override
   void dispose() {
-    _cameraController.dispose();
+    _cameraController?.dispose();
     // CLIP service uses HTTP client which is automatically disposed
     _debugLog('Disposing CLIP service resources');
     _compassSubscription360?.cancel();
@@ -904,7 +917,7 @@ class _NavigationLocalizationScreenState
     }
 
     // Camera not initialized screen similar to navigation_screen.dart
-    if (!_cameraController.value.isInitialized) {
+    if (_cameraController == null || !_cameraController!.value.isInitialized) {
       return Scaffold(
         appBar: AppBar(
           title: const Text('Indoor Navigation'),
@@ -938,7 +951,7 @@ class _NavigationLocalizationScreenState
             flex: 3,
             child: Stack(
               children: [
-                CameraPreview(_cameraController),
+                CameraPreview(_cameraController!),
 
                 // Scan overlay using a new helper method
                 if (_isScanning360)
