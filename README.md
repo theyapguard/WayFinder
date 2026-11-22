@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/icon.png" alt="WayFinder logo" width="140">
+<img src="WayFinder-Code/assets/icon.png" alt="WayFinder logo" width="140">
 
 # 🧭 WayFinder
 
@@ -8,7 +8,7 @@
 
 **AI-powered indoor navigation that needs no beacons, no floor-plan installs, and no infrastructure — just a phone camera.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-3DA639.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-3DA639.svg)](WayFinder-Code/LICENSE)
 [![Flutter](https://img.shields.io/badge/Flutter-3.0+-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)](https://python.org)
 [![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)](#)
@@ -112,7 +112,7 @@ flowchart LR
     TTS --> A
 ```
 
-📐 **[Full architecture, sequence diagrams & component map →](docs/ARCHITECTURE.md)**
+📐 **[Full architecture, sequence diagrams & component map →](WayFinder-Code/docs/ARCHITECTURE.md)**
 
 ### 🔬 The Technical Story in Three Steps
 
@@ -254,7 +254,7 @@ flutter run
 | `path_waypoints` | Embedding + heading + turn type per waypoint |
 | `place_embeddings` | 768-dim location fingerprints for RAG retrieval |
 
-Full schema: [`database_scheme.sql`](database_scheme.sql)
+Full schema: [`database_scheme.sql`](WayFinder-Code/database_scheme.sql)
 
 ---
 
@@ -335,7 +335,7 @@ Contributions that expand independence are welcome!
 
 ## 📄 License
 
-Released under the **MIT License** — see [LICENSE](LICENSE).
+Released under the **MIT License** — see [LICENSE](WayFinder-Code/LICENSE).
 
 ---
 
