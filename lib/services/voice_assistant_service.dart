@@ -20,7 +20,7 @@ import 'position_localization_service.dart';
 /// Voice assistant session states
 enum VoiceSessionState {
   idle,           // Background wake word detection
-  wakeWordDetected, // "Hey Navi" detected, ready to listen
+  wakeWordDetected, // "Hey WayFinder" detected, ready to listen
   listening,      // Recording user speech
   processing,     // Converting speech to text + NLU
   executing,      // Performing requested action
@@ -91,7 +91,7 @@ class VoiceAssistantService {
   Function(String)? onResponse;
 
   // Configuration
-  static const String WAKE_WORD = "Hey Navi";
+  static const String WAKE_WORD = "Hey WayFinder";
   static const int LISTENING_TIMEOUT = 8; // seconds - increased for better speech detection
   static const double MIN_CONFIDENCE = 0.6;
   static const int MAX_RETRY_ATTEMPTS = 2; // Maximum retry attempts for network errors
@@ -261,7 +261,7 @@ class VoiceAssistantService {
 
       _porcupineManager = await PorcupineManager.fromKeywordPaths(
         _picovoiceAccessKey!,
-        ['assets/wakeword.ppn'], // Custom "Hey Navi" wake word
+        ['assets/wakeword.ppn'], // Custom "Hey WayFinder" wake word
         _onWakeWordDetected,
         errorCallback: (error) {
           debugPrint('Porcupine Error: ${error.message}');
@@ -280,7 +280,7 @@ class VoiceAssistantService {
 
   /// Wake word detected callback
   void _onWakeWordDetected(int keywordIndex) {
-    debugPrint('Wake word "Hey Navi" detected!');
+    debugPrint('Wake word "Hey WayFinder" detected!');
 
     // Provide haptic feedback
     HapticFeedback.lightImpact();
@@ -934,7 +934,7 @@ Return ONLY valid JSON: {"intent": "exact phrase from examples", "parameters": {
 
   /// Execute repeat command
   Future<void> _executeRepeat() async {
-    speak('Please say "Hey Navi" followed by your command.');
+    speak('Please say "Hey WayFinder" followed by your command.');
     _updateState(VoiceSessionState.idle);
   }
 

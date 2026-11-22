@@ -1,11 +1,11 @@
 {
-    "name": "place_recognition_app",
-    "short_name": "place_recognition_app",
+    "name": "WayFinder",
+    "short_name": "WayFinder",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#0B1F3A",
+    "theme_color": "#0B1F3A",
+    "description": "WayFinder - AI-powered indoor navigation for the visually impaired",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -1,4 +1,4 @@
-package com.example.place_recognition_app
+package com.wayfinder.app
 
 import io.flutter.embedding.android.FlutterActivity
 

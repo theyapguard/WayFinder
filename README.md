@@ -1,4 +1,8 @@
-# NAVI - AI-Powered Indoor Navigation for the Visually Impaired
+# WayFinder - AI-Powered Indoor Navigation for the Visually Impaired
+
+<p align="center">
+  <img src="assets/icon.png" alt="WayFinder logo" width="150">
+</p>
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Flutter](https://img.shields.io/badge/Flutter-3.0+-02569B?logo=flutter)
@@ -16,10 +20,10 @@ A hands-free indoor navigation system that helps visually impaired users navigat
 
 ## 🎯 What Does It Do?
 
-**NAVI** is a mobile app that helps blind and visually impaired people navigate indoor buildings independently. Users simply:
+**WayFinder** is a mobile app that helps blind and visually impaired people navigate indoor buildings independently. Users simply:
 
-1. **Ask where they are**: "Hey Navi, where am I?"
-2. **Request navigation**: "Hey Navi, take me to the cafeteria"
+1. **Ask where they are**: "Hey WayFinder, where am I?"
+2. **Request navigation**: "Hey WayFinder, take me to the cafeteria"
 3. **Follow voice directions**: Turn-by-turn audio guidance leads them to their destination
 
 The system uses advanced AI to "see" and understand indoor environments through the phone's camera, making indoor navigation as simple as using voice commands.
@@ -71,7 +75,7 @@ The system uses advanced AI to "see" and understand indoor environments through 
 ## ✨ Key Features
 
 ### 🎤 Voice-First Interface
-- **Wake word activation**: "Hey Navi"
+- **Wake word activation**: "Hey WayFinder"
 - **Natural language**: No need to memorize exact commands
 - **GPT-4 powered**: Understands intent from casual speech
 - **Hands-free**: Perfect for accessibility
@@ -204,7 +208,7 @@ flutter run
 
 **Find your location:**
 ```
-"Hey Navi, where am I?"
+"Hey WayFinder, where am I?"
 ```
 - System scans for 8 seconds
 - Detects and removes people from scene (if present)
@@ -213,7 +217,7 @@ flutter run
 
 **Start navigation:**
 ```
-"Hey Navi, take me to the cafeteria"
+"Hey WayFinder, take me to the cafeteria"
 ```
 - System guides you to face the correct direction
 - Provides turn-by-turn audio instructions
@@ -222,9 +226,9 @@ flutter run
 
 **Other commands:**
 ```
-"Hey Navi, what routes are available?"
-"Hey Navi, why do you think I'm here?"
-"Hey Navi, stop"
+"Hey WayFinder, what routes are available?"
+"Hey WayFinder, why do you think I'm here?"
+"Hey WayFinder, stop"
 ```
 
 ---

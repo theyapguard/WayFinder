@@ -53,7 +53,7 @@ class AdminHomeScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Semantics(
-                        label: 'NAVI app icon',
+                        label: 'WayFinder app icon',
                         child: Image.asset(
                           'assets/icon.png',
                           width: mainIconSize,

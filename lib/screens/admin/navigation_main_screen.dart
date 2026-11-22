@@ -229,7 +229,7 @@ class _NavigationMainScreenState extends State<NavigationMainScreen>
       });
       
       if (success) {
-        print('✅ Voice Assistant initialized and listening for "Hey Navi"');
+        print('✅ Voice Assistant initialized and listening for "Hey WayFinder"');
       } else {
         print('⚠️ Voice Assistant initialization failed');
       }
@@ -1709,7 +1709,7 @@ class _NavigationMainScreenState extends State<NavigationMainScreen>
       case VoiceSessionState.idle:
         statusColor = Colors.green;
         statusIcon = Icons.mic;
-        statusText = 'Listening for "Hey Navi"';
+        statusText = 'Listening for "Hey WayFinder"';
         break;
       case VoiceSessionState.wakeWordDetected:
         statusColor = Colors.orange;
